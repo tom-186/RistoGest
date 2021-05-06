@@ -13,70 +13,70 @@ namespace RistoGest.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\tomma\source\repos\RistoGest\RistoGest\_Imports.razor"
+#line 1 "C:\Users\tomma\Desktop\RistoGest\RistoGest\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\tomma\source\repos\RistoGest\RistoGest\_Imports.razor"
+#line 2 "C:\Users\tomma\Desktop\RistoGest\RistoGest\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\tomma\source\repos\RistoGest\RistoGest\_Imports.razor"
+#line 3 "C:\Users\tomma\Desktop\RistoGest\RistoGest\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\tomma\source\repos\RistoGest\RistoGest\_Imports.razor"
+#line 4 "C:\Users\tomma\Desktop\RistoGest\RistoGest\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\tomma\source\repos\RistoGest\RistoGest\_Imports.razor"
+#line 5 "C:\Users\tomma\Desktop\RistoGest\RistoGest\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\tomma\source\repos\RistoGest\RistoGest\_Imports.razor"
+#line 6 "C:\Users\tomma\Desktop\RistoGest\RistoGest\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\tomma\source\repos\RistoGest\RistoGest\_Imports.razor"
+#line 7 "C:\Users\tomma\Desktop\RistoGest\RistoGest\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\tomma\source\repos\RistoGest\RistoGest\_Imports.razor"
+#line 8 "C:\Users\tomma\Desktop\RistoGest\RistoGest\_Imports.razor"
 using RistoGest;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\tomma\source\repos\RistoGest\RistoGest\_Imports.razor"
+#line 9 "C:\Users\tomma\Desktop\RistoGest\RistoGest\_Imports.razor"
 using RistoGest.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\tomma\source\repos\RistoGest\RistoGest\_Imports.razor"
+#line 10 "C:\Users\tomma\Desktop\RistoGest\RistoGest\_Imports.razor"
 using RistoGest.Data;
 
 #line default
@@ -91,14 +91,14 @@ using RistoGest.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 71 "C:\Users\tomma\source\repos\RistoGest\RistoGest\Pages\Piatti.razor"
+#line 78 "C:\Users\tomma\Desktop\RistoGest\RistoGest\Pages\Piatti.razor"
        
 
     private Piatto nuovo;
 
     private async Task Cancella(Piatto daCancellare)
     {
-        /// Chiedo all'utente conferma dell'operazione di cancellazione del record
+        // Chiedere all'utente conferma dell'operazione di cancellazione del record
 
         bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Sei sicuro di voler cancellare questo record");
         if (confirmed)
@@ -108,16 +108,19 @@ using RistoGest.Data;
         }
     }
 
+    // Metodo di aggiunta del record
     private void Aggiungi()
     {
         nuovo = new Piatto();
     }
 
+    // Metodo di modifica del record
     private void Modifica(Piatto daModificare)
     {
         nuovo = daModificare;
     }
 
+    // Metodo di salvataggio del record
     private void Salva()
     {
         if (nuovo.Id == 0)
@@ -133,6 +136,7 @@ using RistoGest.Data;
         nuovo = null;
     }
 
+    // Metodo annullare l'istanza di un nuovo record
     private void Annulla()
     {
         nuovo = null;

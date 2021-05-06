@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tomma\\source\\repos\\RistoGest\\RistoGest\\RistoGest.csproj": {}
+    "C:\\Users\\tomma\\Desktop\\RistoGest\\RistoGest\\RistoGest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tomma\\source\\repos\\RistoGest\\RistoGest\\RistoGest.csproj": {
+    "C:\\Users\\tomma\\Desktop\\RistoGest\\RistoGest\\RistoGest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tomma\\source\\repos\\RistoGest\\RistoGest\\RistoGest.csproj",
+        "projectUniqueName": "C:\\Users\\tomma\\Desktop\\RistoGest\\RistoGest\\RistoGest.csproj",
         "projectName": "RistoGest",
-        "projectPath": "C:\\Users\\tomma\\source\\repos\\RistoGest\\RistoGest\\RistoGest.csproj",
+        "projectPath": "C:\\Users\\tomma\\Desktop\\RistoGest\\RistoGest\\RistoGest.csproj",
         "packagesPath": "C:\\Users\\tomma\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tomma\\source\\repos\\RistoGest\\RistoGest\\obj\\",
+        "outputPath": "C:\\Users\\tomma\\Desktop\\RistoGest\\RistoGest\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tomma\\AppData\\Roaming\\NuGet\\NuGet.Config",

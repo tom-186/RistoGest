@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MXxituu6CLYmvevcg2yejE7OuXRuM+4LXy8CcZW9LnpJZascIff6dFkXsd/QDTRTd7J7h8Mx0xC2HOZl6YGfMw==",
+  "dgSpecHash": "5B5b1ge3BlyiPOlJwEOPqW2LUnrJR/DAQ8MpkN1WC0UxyqbgW+u2itniGL7qm3NsYal2JchQDwyagXnc09LVzA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tomma\\source\\repos\\RistoGest\\RistoGest\\RistoGest.csproj",
+  "projectFilePath": "C:\\Users\\tomma\\Desktop\\RistoGest\\RistoGest\\RistoGest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tomma\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.5\\microsoft.data.sqlite.core.5.0.5.nupkg.sha512",
     "C:\\Users\\tomma\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",
