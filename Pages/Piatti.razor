@@ -1,0 +1,128 @@
+﻿@page "/piatti"
+@inject DataBase db
+@inject IJSRuntime JsRuntime
+
+<h1>Gestione piatti</h1>
+
+
+@if (nuovo == null)
+{
+    <!-- Messaggio di descrizione della pagina e delle sue funzionalità -->
+    <p>In questa pagina puoi gestire i piatti del ristorante.</p>
+    <p>Cliccando il pulsante <button @onclick="(e => Aggiungi())" title="Aggiungi un nuovo piatto">Nuovo piatto</button> puoi aggiungere un nuovo piatto alla lista.</p>
+    <p>Con i pulsanti a lato di ogni record puoi <b>modificare</b> o <b>cancellare</b> il piatto.</p>
+    <br />
+
+    <table class="table table-hover">
+        <!-- Intestazione della tabella dei record -->
+        <thead>
+            <tr>
+                <th>Tipo di portata</th>
+                <th>Nome</th>
+                <th>Allergeni</th>
+                <th>Stagione</th>
+                <th>Prezzo (€)</th>
+            </tr>
+        </thead>
+        <!-- Corpo della tabella -->
+        <tbody>
+            @foreach (Piatto singolo in db.Piatti)
+            {
+                <tr>
+                    <td>@singolo.Tipo_portata</td>
+                    <td>@singolo.Nome</td>
+                    <td>@singolo.Allergeni</td>
+                    <td>@singolo.Stagione</td>
+                    <td>@singolo.Prezzo</td>
+                    <td><button @onclick="(e => Modifica(singolo))" class="oi oi-pencil" title="Modifica piatto"></button></td>
+                    <td><button @onclick="(e => Cancella(singolo))" class="oi oi-trash" title="Cancella piatto"></button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+else
+
+{
+    <!-- Form per l'inserimento e l'aggiornamento dei record -->
+
+    <p>Inserisci/aggiorna i dati e premi <b>Salva</b> oppure <b>Annulla</b> per tornare alla schermata precedente.</p>
+
+    <label for="fname">Tipo di portata </label>
+      <input @bind-value="nuovo.Tipo_portata" class="mt-2 ml-2" placeholder="antipasto,primo,..." type="text" title="Inserire qui il tipo di portata" />
+      <br />
+
+    <label for="fname">Nome </label>
+      <input @bind-value="nuovo.Nome" class="mt-2 ml-2" type="text" placeholder="pizza, bistecca,..." title="Inserire qui il tipo di portata" />
+      <br />
+
+    <label for="fname">Allergeni </label>
+      <input @bind-value="nuovo.Allergeni" class="mt-2 ml-2" type="text" placeholder="glutine, uova,..." title="Inserire qui gli allergeni" />
+      <br />
+
+    <label for="fname">Stagione </label>
+      <input @bind-value="nuovo.Stagione" class="mt-2 ml-2" type="text" placeholder="primavera, estate,..." title="Inserire qui la stagione" />
+      <br />
+
+    <label for="fname">Prezzo (€) </label>
+      <input @bind-value="nuovo.Prezzo" class="mt-2 ml-2" type="text" placeholder="0.00" title="Inserire qui il prezzo con due cifre decimali" />
+      <br />
+
+    <button @onclick="(e => Salva())" class="mt-4" title="Clicca qui per salvare i dati inseriti">Salva</button>
+    <button @onclick="(e => Annulla())" title="Clicca qui per annullare l'operazione">Annulla</button>
+}
+
+
+@code {
+
+    private Piatto nuovo;
+
+    private async Task Cancella(Piatto daCancellare)
+    {
+        // Chiedere all'utente conferma dell'operazione di cancellazione del record
+
+        bool confirmed = await JsRuntime.InvokeAsync<bool>("confirm", "Sei sicuro di voler cancellare questo record");
+        if (confirmed)
+        {
+            db.Piatti.Remove(daCancellare);
+            db.SaveChanges();
+        }
+    }
+
+    // Metodo di aggiunta del record
+    private void Aggiungi()
+    {
+        nuovo = new Piatto();
+    }
+
+    // Metodo di modifica del record
+    private void Modifica(Piatto daModificare)
+    {
+        nuovo = daModificare;
+    }
+
+    // Metodo di salvataggio del record
+    private void Salva()
+    {
+        if (nuovo.Id == 0)
+        {
+            db.Piatti.Add(nuovo);
+        }
+        else
+        {
+            db.Piatti.Update(nuovo);
+        }
+
+        db.SaveChanges();
+        nuovo = null;
+    }
+
+    // Metodo annullare l'istanza di un nuovo record
+    private void Annulla()
+    {
+        nuovo = null;
+    }
+
+}
